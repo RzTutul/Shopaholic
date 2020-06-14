@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="150dp"
+    android:layout_height="230dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="5dp"
+
+    app:cardElevation="3dp">
+
+    <RelativeLayout
+
+        android:layout_width="150dp"
+        android:layout_height="match_parent">
+
+       <TextView
+           android:id="@+id/percentTV"
+           android:elevation="1dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="50%"
+           android:background="@android:color/holo_red_light"
+           android:layout_alignParentRight="true"
+           />
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/dresss4" />
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productImage"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Ladis Dress"
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/catagoriesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productName"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="Ladis"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <TextView
+
+            android:layout_marginTop="8dp"
+            android:id="@+id/PriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/catagoriesTV"
+            android:layout_marginLeft="12dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="300"
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/checkboxIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:button="@drawable/sl_favourite_24dp"
+            app:buttonTint="@android:color/holo_red_light" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

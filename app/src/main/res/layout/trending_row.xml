@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_weight="1"
+            android:elevation="7dp"
+            >
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_margin="5dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="6dp"
+                >
+
+
+                <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+                    android:elevation="7dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/productImge"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:siShape="@drawable/shape_rounded_rectangle"
+                    app:siSquare="true"/>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:elevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="2"
+            >
+
+            <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="@color/cardview_light_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="130dp"
+                        android:id="@+id/PriceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="$85"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_marginLeft="130dp"
+                        android:id="@+id/productNameTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/PriceTV"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Ladies Dress" />
+
+                    <TextView
+                        android:layout_marginLeft="130dp"
+                        android:id="@+id/productCatagoriesTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/productNameTV"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Woman" />
+
+                    <TextView
+                        android:layout_marginLeft="130dp"
+                        android:id="@+id/productDescription"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/productCatagoriesTV"
+                        android:fontFamily="sans-serif-light"
+                        android:text="The Ladies Product is available now."
+                        android:textSize="12dp" />
+
+                    <CheckBox
+                        android:id="@+id/checkboxIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:button="@drawable/sl_favourite_24dp"
+                        app:buttonTint="@android:color/holo_red_light" />
+
+                    <TextView
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:layout_marginRight="24dp"
+                        android:id="@+id/cartBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/checkboxIcon"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="@android:color/white"
+                        android:drawableLeft="@drawable/ic_add_shopping_cart_black_24dp"
+                        />
+                     <TextView
+                         android:layout_alignParentBottom="true"
+                         android:gravity="bottom"
+                         android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:id="@+id/more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cartBtn"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="@android:color/white"
+                        android:drawableLeft="@drawable/ic_keyboard_arrow_right_black_24dp"
+
+                        />
+
+
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
