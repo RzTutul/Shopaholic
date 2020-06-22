@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerceapp.R;
@@ -53,6 +54,13 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.al
                 {
                     Snackbar.make(holder.itemView,"Added Favorite List",Snackbar.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(holder.itemView).navigate(R.id.productDetailsFragment);
             }
         });
     }

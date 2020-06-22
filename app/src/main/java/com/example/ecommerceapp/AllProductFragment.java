@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,7 @@ import static android.content.ContentValues.TAG;
 public class AllProductFragment extends Fragment {
 
     RecyclerView allProductRV;
-
+    GridLayoutManager gridLayoutManager;
     List<ProductPojo> productPojos = new ArrayList<>();
 
     int[] productImages = {R.drawable.dress1,R.drawable.dresss2,R.drawable.dresss3,R.drawable.dresss4,R.drawable.dresss5,R.drawable.dresss6};
@@ -63,12 +64,10 @@ public class AllProductFragment extends Fragment {
             productPojos.add(productPojo);
         }
         AllProductAdapter allProductAdapter = new AllProductAdapter(getActivity(),productPojos);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
-        allProductRV.setLayoutManager(gridLayoutManager);
-
+         gridLayoutManager = new GridLayoutManager(getActivity(),2);
+         allProductRV.setLayoutManager(gridLayoutManager);
         allProductRV.setAdapter(allProductAdapter);
-
-
-
     }
+
+
 }

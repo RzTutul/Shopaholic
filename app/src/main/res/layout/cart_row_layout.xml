@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/card1"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cproductNameTV"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Product Name"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/cproductCatagoriesTV"
+                android:layout_below="@+id/cproductNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Ladies"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:id="@+id/cproductPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="80dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="$300"
+                android:textSize="18sp" />
+
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_below="@+id/card1"
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/card1"
+                android:background="#1DE9B6"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_below="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            >
+
+
+            <ImageView
+                android:id="@+id/cproductImage"
+                android:layout_weight="0.7"
+                android:layout_marginTop="15sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/dresss3"
+                android:layout_below="@+id/view"
+                />
+
+            <LinearLayout
+                android:layout_weight="1.3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:id="@+id/qytLL"
+                        android:layout_below="@+id/productRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20sp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dp"
+                            android:text="Qty"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-smallcaps"
+
+                            />
+
+                        <Button
+                            android:id="@+id/qytDescBtn"
+                            android:backgroundTint="#96E2B7"
+                            android:layout_width="53dp"
+                            android:layout_height="40dp"
+                            android:textAllCaps="false"
+                            app:cornerRadius="20dp"
+                            app:icon="@drawable/descrese_qtyicon" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/cQytTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginRight="10dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="1"
+                            android:textSize="25sp"
+
+                            />
+
+                        <Button
+                            android:id="@+id/increaseQytBtn"
+                            android:layout_width="53dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="8dp"
+                            android:backgroundTint="#96E2B7"
+                            android:textAllCaps="false"
+                            app:cornerRadius="20dp"
+                            app:icon="@drawable/increase_qyticon" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                         android:layout_marginTop="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Size:"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+                         <TextView
+                             android:id="@+id/csizeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S"
+                             android:layout_marginLeft="10dp"
+                            android:textSize="20sp"
+                             android:textColor="#000"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                         android:layout_marginTop="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Color:"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+                         <TextView
+                             android:id="@+id/ccolorTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Red"
+                             android:layout_marginLeft="10dp"
+                            android:textSize="20sp"
+                             android:textColor="#000"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+
+
+                    </LinearLayout><LinearLayout
+                         android:layout_marginTop="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SubTotal:"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+                         <TextView
+                             android:id="@+id/csubTotalTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="000"
+                             android:layout_marginLeft="10dp"
+                            android:textSize="20sp"
+                             android:textColor="#000"
+                            android:fontFamily="sans-serif-smallcaps"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            android:layout_margin="3dp"
+            android:id="@+id/removeCard"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_alignParentRight="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            >
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clear_black_24dp"
+                />
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

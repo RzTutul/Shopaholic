@@ -33,17 +33,17 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getId())
                 {
                     case 1:
-                        Toast.makeText(MainActivity.this, "clicked item : " + item.getId(), Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(MainActivity.this,R.id.nav_host_fragment_container).navigate(R.id.homePageFragment);
                         break;
 
                     case 2:
                         Navigation.findNavController(MainActivity.this,R.id.nav_host_fragment_container).navigate(R.id.productDetailsFragment);
-                        Toast.makeText(MainActivity.this, "clicked item : " + item.getId(), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        Toast.makeText(MainActivity.this, "clicked item : " + item.getId(), Toast.LENGTH_SHORT).show();
                         break;
 
+
+                    case 3:
+                        Navigation.findNavController(MainActivity.this,R.id.nav_host_fragment_container).navigate(R.id.cartFragment);
+                        break;
                         default:
                             break;
 

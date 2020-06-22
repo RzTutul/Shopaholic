@@ -1,21 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="55dp"
     tools:context=".ProductDetailsFragment">
 
 
+    <LinearLayout
+        android:elevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addCartBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000"
+            android:text="Add Cart"
+            android:textAllCaps="false"
+            app:cornerRadius="13dp"
+            app:icon="@drawable/ic_add_shopping_cart_black_24dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addWishBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#000"
+            android:text="Add WishList"
+            android:textAllCaps="false"
+            app:cornerRadius="13dp"
+            app:icon="@drawable/ic_favorite_border_black_24dp" />
+
+    </LinearLayout>
+
+
     <androidx.core.widget.NestedScrollView
+        android:elevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        >
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
         <RelativeLayout
+            android:elevation="0dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
@@ -35,17 +70,16 @@
                 app:sliderStartAutoCycle="true" />
 
             <TextView
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="3dp"
                 android:id="@+id/productNameTV"
-                android:layout_below="@+id/imageSlider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cotton Casual Shirt"
-                android:fontFamily="sans-serif-light"
-                android:textSize="20sp"
+                android:layout_below="@+id/imageSlider"
                 android:layout_alignParentLeft="true"
-                />
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Cotton Casual Shirt"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/productPriceTV"
@@ -56,19 +90,20 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="sans-serif-light"
-                android:text="$400"
+                android:text="400"
                 android:textSize="20sp" />
 
             <RatingBar
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
+                android:id="@+id/productRating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/productRating"
                 android:layout_below="@id/productNameTV"
-                style="@style/Widget.AppCompat.RatingBar.Small"
-                android:rating="3.5"
-                />
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:rating="3.5" />
+
+
             <TextView
                 android:id="@+id/stockStatus"
                 android:layout_width="wrap_content"
@@ -82,60 +117,215 @@
                 android:textSize="16sp" />
 
             <LinearLayout
-                android:layout_marginTop="10dp"
+                android:id="@+id/qytLL"
+                android:layout_below="@+id/productRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/stockStatus"
-                android:orientation="vertical"
-                >
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20sp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Qty"
+                    android:textSize="20sp"
+
+                    />
+
+                <Button
+                    android:id="@+id/qytDesc"
+                    android:backgroundTint="#9E8888"
+                    android:layout_width="54dp"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/descrese_qtyicon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/QytTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="1"
+                    android:textSize="25sp"
+
+                    />
+
+                <Button
+                    android:id="@+id/increaseQytBtn"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:backgroundTint="#9E8888"
+                    android:textAllCaps="false"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/increase_qyticon" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/qytLL"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Select Size:"
-                    android:textSize="20sp"
                     android:fontFamily="sans-serif-smallcaps"
-                    />
-
+                    android:text="Select Size:"
+                    android:textSize="20sp" />
 
 
                 <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
                     android:id="@+id/group_choices"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:tbgCheckedButton="@+id/choice_a">
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp">
 
                     <com.nex3z.togglebuttongroup.button.LabelToggle
                         android:id="@+id/choice_s"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="S"/>
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:text="S"
+                        android:textSize="13dp" />
 
                     <com.nex3z.togglebuttongroup.button.LabelToggle
                         android:id="@+id/choice_m"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="M"/>
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="M"
+                        android:textSize="13dp" />
 
-                     <com.nex3z.togglebuttongroup.button.LabelToggle
+                    <com.nex3z.togglebuttongroup.button.LabelToggle
                         android:id="@+id/choice_l"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="L"/>
 
-                     <com.nex3z.togglebuttongroup.button.LabelToggle
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="L"
+                        android:textSize="13dp" />
+
+                    <com.nex3z.togglebuttongroup.button.LabelToggle
                         android:id="@+id/choice_xl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="XL"/>
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="XL"
+                        android:textSize="13dp" />
 
                     <com.nex3z.togglebuttongroup.button.LabelToggle
                         android:id="@+id/choice_xx"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="XX" />
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+
+                        android:layout_marginLeft="5dp"
+                        android:text="XX"
+                        android:textSize="13dp" />
 
 
                 </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Select Color:"
+                    android:textSize="20sp" />
+
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:elevation="0dp"
+                        android:id="@+id/chipsGroup"
+                        style="@style/Widget.MaterialComponents.ChipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleLine="true"
+                        app:singleSelection="true"
+
+                        />
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Product Description"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="A product description is the marketing copy that explains what a product is and why it's worth purchasing. The purpose of a product description is to supply customers with important information about the features and benefits of the product so they're compelled to buy"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="May Also Like"
+                    android:textSize="20sp" />
+
+
+
+                <HorizontalScrollView
+                    android:layout_marginBottom="50dp"
+                    android:elevation="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    >
+
+                    <LinearLayout
+                        android:elevation="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/tshirt2"
+                            />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/tshirt3"
+                            />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/tshirt5"
+                            />
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/tshirt5"
+                            />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
             </LinearLayout>
 
 

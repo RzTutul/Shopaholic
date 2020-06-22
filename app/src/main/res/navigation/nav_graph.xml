@@ -25,4 +25,9 @@
         android:name="com.example.ecommerceapp.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.ecommerceapp.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

@@ -110,7 +110,7 @@ public class HomePageFragment extends Fragment {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), 0);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), 5);
         viewPagerAdapter.addFragment(allProductFragment, "All");
         viewPagerAdapter.addFragment(shirtProductFragment, "Shirt");
         viewPager.setAdapter(viewPagerAdapter);

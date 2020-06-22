@@ -52,14 +52,14 @@
             android:textColor="#000"
             android:textSize="12sp" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
 
-            android:layout_marginTop="8dp"
             android:id="@+id/PriceTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/catagoriesTV"
             android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="300"
             android:textColor="#000"
