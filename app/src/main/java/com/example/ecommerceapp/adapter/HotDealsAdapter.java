@@ -1,6 +1,7 @@
 package com.example.ecommerceapp.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,10 @@ public class HotDealsAdapter extends RecyclerView.Adapter<HotDealsAdapter.allPro
         holder.offerPercentTV.setText(hotDealsPojoList.get(position).getOfferPercent()+"%");
         holder.productImage.setImageResource(hotDealsPojoList.get(position).getProductImage());
 
+        //For drawLine through textView
+        holder.oldPrice.setPaintFlags(holder.oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +67,7 @@ public class HotDealsAdapter extends RecyclerView.Adapter<HotDealsAdapter.allPro
 
     public class allProductViewHolder extends RecyclerView.ViewHolder
     {
-        TextView productName,productPrice,productCatagoires,offerPercentTV;
+        TextView productName,productPrice,oldPrice,productCatagoires,offerPercentTV;
         ImageView productImage;
 
         public allProductViewHolder(@NonNull View itemView) {
@@ -71,6 +76,7 @@ public class HotDealsAdapter extends RecyclerView.Adapter<HotDealsAdapter.allPro
             productName =itemView.findViewById(R.id.productName);
             productImage =itemView.findViewById(R.id.productImage);
             productPrice =itemView.findViewById(R.id.PriceTV);
+            oldPrice =itemView.findViewById(R.id.oldPriceTV);
             productCatagoires =itemView.findViewById(R.id.catagoriesTV);
             offerPercentTV =itemView.findViewById(R.id.percentTV);
 

@@ -44,8 +44,8 @@ import java.util.List;
 public class HomePageFragment extends Fragment {
 
     private SliderView sliderView;
-    int images[]={R.drawable.sliderimage1,R.drawable.sliderimage2,R.drawable.sliderimage3,};
-    String titile[]={"fd ","f ","f "};
+    int images[] = {R.drawable.sliderimage1, R.drawable.sliderimage2, R.drawable.sliderimage3,};
+    String titile[] = {"fd ", "f ", "f "};
 
     private Toolbar toolbar;
     private ViewPager viewPager;
@@ -54,14 +54,15 @@ public class HomePageFragment extends Fragment {
     private AllProductFragment allProductFragment;
     private ShirtProductFragment shirtProductFragment;
 
-    private RecyclerView topCatagoriesRV,hotdealsRV,trendingRV;
+    private RecyclerView topCatagoriesRV, hotdealsRV, trendingRV;
 
-    int[] productImages = {R.drawable.dress1,R.drawable.dresss2,R.drawable.dresss3,R.drawable.dresss4,R.drawable.dresss5,R.drawable.dresss6};
-    String [] productName ={"Ladis", "Grawn Dress","Babe Dress","New Dress","Floor Touch","Kakatua Dress"};
-    String [] productCatgoires ={"Ladis", "Men","Babe","HouseHold","Ladis","Men"};
-    String [] description ={"It is avaiable now.", "It is avaiable now.","It is avaiable now.","It is avaiable now.","It is avaiable now.","It is avaiable now."};
-    int[] productPrice= {100,200,300,4000,5000,6000};
-    String [] offerPercent ={"20", "50","70","30","50","30"};
+    int[] productImages = {R.drawable.dress1, R.drawable.dresss2, R.drawable.dresss3, R.drawable.dresss4, R.drawable.dresss5, R.drawable.dresss6};
+    int[] TopCatagoriesImages = {R.drawable.tshirt6, R.drawable.dresss2, R.drawable.tshirt4, R.drawable.dresss4, R.drawable.dresss5, R.drawable.household1};
+    String[] productName = {"Ladis", "Grawn Dress", "Babe Dress", "New Dress", "Floor Touch", "Kakatua Dress"};
+    String[] productCatgoires = {"Men", "Women", "Boys", "Girls", "Babe", "HouseHold"};
+    String[] description = {"It is avaiable now.", "It is avaiable now.", "It is avaiable now.", "It is avaiable now.", "It is avaiable now.", "It is avaiable now."};
+    int[] productPrice = {100, 200, 300, 4000, 5000, 6000};
+    String[] offerPercent = {"20", "50", "70", "30", "50", "30"};
 
     List<TopCatagoriesPojo> topCatagoriesPojoList = new ArrayList<>();
     List<HotDealsPojo> hotDealsPojoList = new ArrayList<>();
@@ -107,67 +108,77 @@ public class HomePageFragment extends Fragment {
 
         allProductFragment = new AllProductFragment();
         shirtProductFragment = new ShirtProductFragment();
+        CartFragment cartFragment = new CartFragment();
 
         tabLayout.setupWithViewPager(viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), 5);
         viewPagerAdapter.addFragment(allProductFragment, "All");
         viewPagerAdapter.addFragment(shirtProductFragment, "Shirt");
+        viewPagerAdapter.addFragment(cartFragment, "Winter Wear");
+        /*viewPagerAdapter.addFragment(shirtProductFragment, "Bag");
+        viewPagerAdapter.addFragment(shirtProductFragment, "Panjabi");
+        viewPagerAdapter.addFragment(shirtProductFragment, "Sari");
+        viewPagerAdapter.addFragment(shirtProductFragment, "Shoes");
+        viewPagerAdapter.addFragment(shirtProductFragment, "Watch");
+        viewPagerAdapter.addFragment(shirtProductFragment, "Electronics");
+        viewPagerAdapter.addFragment(shirtProductFragment, "SmartPhone");*/
         viewPager.setAdapter(viewPagerAdapter);
+        tabLayout.getTabAt(0).setIcon(R.drawable.allproducticon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.shirticon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.winterdressicon);
+       /* tabLayout.getTabAt(3).setIcon(R.drawable.bagicon);
+        tabLayout.getTabAt(4).setIcon(R.drawable.panjabiicon);
+        tabLayout.getTabAt(5).setIcon(R.drawable.sariicon);
+        tabLayout.getTabAt(6).setIcon(R.drawable.shoesicon);
+        tabLayout.getTabAt(7).setIcon(R.drawable.watchicon);
+        tabLayout.getTabAt(8).setIcon(R.drawable.electronicicon);
+        tabLayout.getTabAt(9).setIcon(R.drawable.smartphoneicon);*/
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.icon1);
-        tabLayout.getTabAt(1).setIcon(R.drawable.icon2);
         BadgeDrawable badgeDrawable = tabLayout.getTabAt(0).getOrCreateBadge();
         badgeDrawable.setVisible(true);
         badgeDrawable.setNumber(12);
 
         //Top Catagories RecyleView
-        for (int i =0;i<productImages.length;i++)
-        {
-            TopCatagoriesPojo topCatagoriesPojo = new TopCatagoriesPojo(productName[i],productImages[i]);
+        for (int i = 0; i < productImages.length; i++) {
+            TopCatagoriesPojo topCatagoriesPojo = new TopCatagoriesPojo(productCatgoires[i], TopCatagoriesImages[i]);
 
             topCatagoriesPojoList.add(topCatagoriesPojo);
 
 
         }
-        Toast.makeText(getActivity(), "TOp"+topCatagoriesPojoList.size(), Toast.LENGTH_SHORT).show();
-        TopCatagoriesAdapter topCatagoriesAdapter = new TopCatagoriesAdapter(getActivity(),topCatagoriesPojoList);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        Toast.makeText(getActivity(), "TOp" + topCatagoriesPojoList.size(), Toast.LENGTH_SHORT).show();
+        TopCatagoriesAdapter topCatagoriesAdapter = new TopCatagoriesAdapter(getActivity(), topCatagoriesPojoList);
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         topCatagoriesRV.setLayoutManager(llm);
         topCatagoriesRV.setAdapter(topCatagoriesAdapter);
 
 
         //HotDeals CatagoriesRV
-        for (int i =0;i<productImages.length;i++)
-        {
-            HotDealsPojo hotDealsPojo = new HotDealsPojo(productImages[i],productName[i],productCatgoires[i],productPrice[i],offerPercent[i]);
+        for (int i = 0; i < productImages.length; i++) {
+            HotDealsPojo hotDealsPojo = new HotDealsPojo(productImages[i], productName[i], productCatgoires[i], productPrice[i], offerPercent[i]);
             hotDealsPojoList.add(hotDealsPojo);
 
         }
 
-        HotDealsAdapter hotDealsAdapter = new HotDealsAdapter(getActivity(),hotDealsPojoList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        HotDealsAdapter hotDealsAdapter = new HotDealsAdapter(getActivity(), hotDealsPojoList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         hotdealsRV.setLayoutManager(linearLayoutManager);
         hotdealsRV.setAdapter(hotDealsAdapter);
 
 
-
         //Treding Catagories
 
-        for (int i =0;i<productImages.length;i++)
-        {
-            TrendingPojo  trendingPojo = new TrendingPojo(productPrice[i],productName[i],description[i],productCatgoires[i],productImages[i]);
+        for (int i = 0; i < productImages.length; i++) {
+            TrendingPojo trendingPojo = new TrendingPojo(productPrice[i], productName[i], description[i], productCatgoires[i], productImages[i]);
             trendingPojoList.add(trendingPojo);
 
         }
 
-        TrendingAdapter trendingAdapter = new TrendingAdapter(getActivity(),trendingPojoList);
+        TrendingAdapter trendingAdapter = new TrendingAdapter(getActivity(), trendingPojoList);
         LinearLayoutManager trendingllm = new LinearLayoutManager(getActivity());
         trendingRV.setLayoutManager(trendingllm);
         trendingRV.setAdapter(trendingAdapter);
-
-
-
 
 
     }

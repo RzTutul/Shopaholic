@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.ecommerceapp.adapter.CartAdapter;
 import com.example.ecommerceapp.pojo.ProductDeatilsPojo;
@@ -27,6 +28,7 @@ import java.util.List;
 public class CartFragment extends Fragment {
 
     RecyclerView cartRV;
+    TextView totalPrice;
    public static List<ProductDeatilsPojo> list = new ArrayList<>();
 
     public CartFragment() {
@@ -45,10 +47,18 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cartRV = view.findViewById(R.id.cartRV);
+        totalPrice = view.findViewById(R.id.totalPrice);
+        int total_price=0;
+        for (ProductDeatilsPojo productDeatilsPojo : list)
+        {
+            total_price= total_price+(productDeatilsPojo.getProductPrice()*productDeatilsPojo.getProdcutQyt());
+        }
+
+        totalPrice.setText(String.valueOf(total_price));
 
 
 
-       CartAdapter cartAdapter = new CartAdapter(getActivity(),list);
+        CartAdapter cartAdapter = new CartAdapter(getActivity(),list);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         cartRV.setLayoutManager(llm);
         cartRV.setAdapter(cartAdapter);

@@ -20,6 +20,8 @@ import com.example.ecommerceapp.pojo.ProductDeatilsPojo;
 import com.example.ecommerceapp.pojo.ProductPojo;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.allProductViewHolder> {
@@ -107,8 +109,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.allProductView
     public class allProductViewHolder extends RecyclerView.ViewHolder {
         TextView productName, productPriceTV, productCatgoriesTV, QytTV, sizeTV, colorTV, subtotalTV;
         ImageView productImage;
-        CardView removeCard;
-        Button qytIncreaseBtn, qytDescreaseBtn;
+        TextView removeCard;
+        TextView qytIncreaseBtn, qytDescreaseBtn;
 
         public allProductViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -52,18 +52,43 @@
             android:textColor="#000"
             android:textSize="12sp" />
 
-        <com.google.android.material.textview.MaterialTextView
 
-            android:id="@+id/PriceTV"
+        <LinearLayout
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/catagoriesTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/catagoriesTV"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="300"
-            android:textColor="#000"
-            android:textSize="15sp" />
+            android:orientation="horizontal"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/oldPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/catagoriesTV"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="800"
+                android:textColor="#423D3D"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/PriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/catagoriesTV"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="300"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+
 
         <CheckBox
             android:id="@+id/checkboxIcon"

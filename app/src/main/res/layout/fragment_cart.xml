@@ -1,16 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7EFF2"
     tools:context=".CartFragment">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginBottom="50dp"
-        android:id="@+id/cartRV"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cartLL"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#045174">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Cart"
+                    android:textColor="#fff"
+                    android:textSize="30sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                tools:listitem="@layout/cart_row_layout"
+                android:id="@+id/cartRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cartLL"
+                android:layout_marginTop="3dp" />
+
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/boardLL"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/cartRV"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:padding="12dp"
+                app:neumorph_shadowElevation="6dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Subtotal" />
+
+                        <TextView
+                            android:id="@+id/subTotalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:gravity="center"
+                            android:text="2000" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Discount" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:gravity="center"
+                            android:text="-$0.00" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Delivery" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:gravity="center"
+                            android:text="Free" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Total Price"
+                            android:textColor="#000" />
+
+                        <TextView
+                            android:id="@+id/totalPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:gravity="center"
+                            android:text="100" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </soup.neumorphism.NeumorphCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/boardLL"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="55dp"
+                android:backgroundTint="@color/black"
+                android:text="Proceed"
+                app:cornerRadius="10dp" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

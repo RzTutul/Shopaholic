@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="100dp"
-    android:layout_height="120dp"
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="130dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="30dp"
-    app:cardElevation="3dp"
-    android:layout_margin="5dp"
+    app:neumorph_shadowElevation="5dp"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,4 +32,4 @@
 
 
 
-</androidx.cardview.widget.CardView>
+</soup.neumorphism.NeumorphCardView>
