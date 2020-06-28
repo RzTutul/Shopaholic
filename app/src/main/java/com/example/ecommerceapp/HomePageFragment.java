@@ -29,7 +29,7 @@ import com.example.ecommerceapp.pojo.TopCatagoriesPojo;
 import com.example.ecommerceapp.pojo.TrendingPojo;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
-import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -94,7 +94,7 @@ public class HomePageFragment extends Fragment {
 
         sliderView.setSliderAdapter(adapter);
 
-        sliderView.setIndicatorAnimation(IndicatorAnimations.FILL); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.FILL); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
@@ -145,9 +145,8 @@ public class HomePageFragment extends Fragment {
 
             topCatagoriesPojoList.add(topCatagoriesPojo);
 
-
         }
-        Toast.makeText(getActivity(), "TOp" + topCatagoriesPojoList.size(), Toast.LENGTH_SHORT).show();
+
         TopCatagoriesAdapter topCatagoriesAdapter = new TopCatagoriesAdapter(getActivity(), topCatagoriesPojoList);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         topCatagoriesRV.setLayoutManager(llm);

@@ -37,8 +37,6 @@ public class ImageSliderAdapter extends SliderViewAdapter<ImageSliderAdapter.Sli
     public void onBindViewHolder(SliderAdapterVH viewHolder, final int position) {
       viewHolder.imageViewBackground.setBackgroundResource(images[position]);
 
-       viewHolder.textViewDescription.setText(title[position]);
-
        viewHolder.imageViewBackground.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -61,7 +59,6 @@ public class ImageSliderAdapter extends SliderViewAdapter<ImageSliderAdapter.Sli
         public SliderAdapterVH(View itemView) {
             super(itemView);
             imageViewBackground = itemView.findViewById(R.id.image);
-            textViewDescription = itemView.findViewById(R.id.titile);
             this.itemView = itemView;
         }
     }

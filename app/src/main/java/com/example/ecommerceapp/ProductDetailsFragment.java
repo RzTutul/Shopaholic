@@ -28,12 +28,15 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.snackbar.Snackbar;
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup;
-import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.ecommerceapp.MainActivity.bottomNavigation;
+import static com.example.ecommerceapp.MainActivity.cartCount;
 
 
 /**
@@ -120,7 +123,7 @@ public class ProductDetailsFragment extends Fragment {
 
         sliderView.setSliderAdapter(adapter);
 
-        sliderView.setIndicatorAnimation(IndicatorAnimations.SLIDE); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
         sliderView.setSliderTransformAnimation(SliderAnimations.FADETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
@@ -188,6 +191,12 @@ public class ProductDetailsFragment extends Fragment {
 
                 CartFragment.list.add(productDeatilsPojo);
                 Navigation.findNavController(getActivity(),R.id.nav_host_fragment_container).navigate(R.id.cartFragment);
+
+                cartCount++;
+              bottomNavigation.setCount(3,String.valueOf(cartCount) );
+
+                Toast.makeText(getActivity(), ""+ cartCount, Toast.LENGTH_SHORT).show();
+
 
             }
         });

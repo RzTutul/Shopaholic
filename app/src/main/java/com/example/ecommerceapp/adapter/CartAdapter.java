@@ -4,23 +4,19 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecommerceapp.MainActivity;
 import com.example.ecommerceapp.R;
 import com.example.ecommerceapp.pojo.ProductDeatilsPojo;
-import com.example.ecommerceapp.pojo.ProductPojo;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.w3c.dom.Text;
+import static com.example.ecommerceapp.MainActivity.bottomNavigation;
+import static com.example.ecommerceapp.MainActivity.cartCount;
 
 import java.util.List;
 
@@ -63,6 +59,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.allProductView
             public void onClick(View v) {
                 productPojos.remove(productPojos.get(position));
                 notifyDataSetChanged();
+                 cartCount--;
+              bottomNavigation.setCount(3,String.valueOf(cartCount));
             }
         });
 
